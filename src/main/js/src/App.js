@@ -1,6 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from './logo.png';
 import {useEffect, useState} from "react";
+import {Container, Navbar} from "react-bootstrap";
+import {Introduction} from "./components/Introduction.tsx";
 
 function App() {
 
@@ -10,15 +11,22 @@ function App() {
     fetch('/example')
         .then(response => response.text()).then(message=> setMessage(message))
   },[])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>{message}</h1>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
+      <Navbar expand="lg" className="bg-body-tertiary">
+        <Container>
+          <Navbar.Brand href="/" ><img
+              src={logo}
+              height="40"
+              className="d-inline-block align-top"
+              alt="React Bootstrap logo"
+          /></Navbar.Brand>
+        </Container>
+      </Navbar>
+      <Container>
+        <Introduction/>
+      </Container>
     </div>
   );
 }
