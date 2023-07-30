@@ -1,16 +1,8 @@
 import logo from './logo.png';
-import {useEffect, useState} from "react";
 import {Container, Navbar} from "react-bootstrap";
 import {Introduction} from "./components/Introduction.tsx";
 
 function App() {
-
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    fetch('/example')
-        .then(response => response.text()).then(message=> setMessage(message))
-  },[])
 
   return (
     <div className="App">
