@@ -1,20 +1,14 @@
 import React, {useEffect, useState} from "react";
-import {LoginButton} from "./account/LoginButton.tsx";
-import {useAuth0} from "@auth0/auth0-react";
-import {LogoutButton} from "./account/LogoutButton.tsx";
 
 export const Introduction = () => {
     const [message, setMessage] = useState("");
-    const {user} = useAuth0();
 
     useEffect(() => {
         fetch('/example')
             .then(response => response.text()).then(message=> setMessage(message))
     },[])
     let text = <p>No User logged in</p>
-    if (user?.email) {
-        text = <p>Hi there {user.email}</p>
-    }
+
     return (
         <div>
             <div className="my-5">
@@ -23,8 +17,6 @@ export const Introduction = () => {
                     {message}
                 </p>
                 {text}
-                <br/>
-                <p> {user?.email?<LogoutButton/>:<LoginButton/>}</p>
             </div>
             <br/>
         </div>
