@@ -3,6 +3,11 @@ import React, {useEffect, useState} from "react";
 export const Introduction = () => {
     const [message, setMessage] = useState("");
 
+    const domain = process.env.REACT_APP_AUTH0_DOMAIN;
+    const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
+    const redirectUri = process.env.REACT_APP_AUTH0_CALLBACK_URL;
+    const audience = process.env.REACT_APP_AUTH0_AUDIENCE;
+
     useEffect(() => {
         fetch('/example')
             .then(response => response.text()).then(message=> setMessage(message))
@@ -17,6 +22,9 @@ export const Introduction = () => {
                     {message}
                 </p>
                 {text}
+                <p>
+                    {domain}<br/>{clientId} <br/>{redirectUri}<br/> {audience}
+                </p>
             </div>
             <br/>
         </div>
