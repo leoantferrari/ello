@@ -31,6 +31,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
       - name: Set up Java version
         uses: actions/setup-java@v1
         with:
@@ -58,11 +63,17 @@ jobs:
         with:
           name: java-app
 
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'ello-ml'
+          app-name: 'your-azure-webapp-name'  # Replace with your Azure Web App name
           slot-name: 'production'
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_1234 }}
           package: '*.jar'
+
