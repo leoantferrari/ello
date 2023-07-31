@@ -1,18 +1,20 @@
 import React, {useEffect, useState} from "react";
+import {LoginButton} from "./account/LoginButton.tsx";
+import {LogoutButton} from "./account/LogoutButton.tsx";
+import {useAuth0} from "@auth0/auth0-react";
 
 export const Introduction = () => {
     const [message, setMessage] = useState("");
-
-    const domain = process.env.REACT_APP_AUTH0_DOMAIN;
-    const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
-    const redirectUri = process.env.REACT_APP_AUTH0_CALLBACK_URL;
-    const audience = process.env.REACT_APP_AUTH0_AUDIENCE;
+    const {user} = useAuth0();
 
     useEffect(() => {
         fetch('api/example')
             .then(response => response.text()).then(message=> setMessage(message))
     },[])
     let text = <p>No User logged in</p>
+    if (user?.email) {
+        text = <p>Hi there {user.email}</p>
+    }
 
     return (
         <div>
@@ -22,10 +24,8 @@ export const Introduction = () => {
                     {message}
                 </p>
                 {text}
-                <p>
-                    domain:{domain}<br/>clientid:{clientId} <br/>redirectUri:{redirectUri}<br/> audience:{audience}
-                </p>
-                hello
+                <br/>
+                <p> {user?.email?<LogoutButton/>:<LoginButton/>}</p>
             </div>
             <br/>
         </div>
