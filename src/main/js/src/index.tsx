@@ -9,8 +9,10 @@ import {Auth0ProviderWithNavigate} from "./components/account/Auth0Navigate.tsx"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        <BrowserRouter><Auth0ProviderWithNavigate><ApplicationRouter/></Auth0ProviderWithNavigate>
-
+        <BrowserRouter>
+            <Auth0ProviderWithNavigate>
+                <ApplicationRouter/>
+            </Auth0ProviderWithNavigate>
         </BrowserRouter>
     </React.StrictMode>
 );
