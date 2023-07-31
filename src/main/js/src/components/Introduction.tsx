@@ -23,7 +23,7 @@ export const Introduction = () => {
                 </p>
                 {text}
                 <p>
-                    {domain}<br/>{clientId} <br/>{redirectUri}<br/> {audience}
+                    domain:{domain}<br/>clientid:{clientId} <br/>redirectUri:{redirectUri}<br/> audience:{audience}
                 </p>
                 hello
             </div>
