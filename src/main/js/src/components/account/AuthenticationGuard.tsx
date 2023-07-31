@@ -13,7 +13,7 @@ export const AuthenticationGuard = ({component}: Props) => {
                 <PageLoader/>
             </div>
         ),
-        returnTo: '/signUp'
+        returnTo: '/hello'
     });
 
     return <Component/>;
