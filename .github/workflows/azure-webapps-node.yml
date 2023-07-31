@@ -42,7 +42,7 @@ jobs:
       - name: create env file
         run: |
           cd src/main/js/
-          echo REACT_APP_AUTH0_AUDIENCE=${{ secrets.REACT_APP_AUTH0_AUDIENCE }} REACT_APP_AUTH0_CALLBACK_URL=${{ secrets.REACT_APP_AUTH0_CALLBACK_URL }} REACT_APP_AUTH0_CLIENT_ID=${{ secrets.REACT_APP_AUTH0_CLIENT_ID } REACT_APP_AUTH0_DOMAIN=${{ secrets.REACT_APP_AUTH0_DOMAIN }} >> .env
+          echo REACT_APP_AUTH0_AUDIENCE=${{ secrets.REACT_APP_AUTH0_AUDIENCE }} REACT_APP_AUTH0_CALLBACK_URL=${{ secrets.REACT_APP_AUTH0_CALLBACK_URL }} REACT_APP_AUTH0_CLIENT_ID=${{ secrets.REACT_APP_AUTH0_CLIENT_ID }} REACT_APP_AUTH0_DOMAIN=${{ secrets.REACT_APP_AUTH0_DOMAIN }} >> .env
           cd ../../../
 
       - name: Build with Maven
