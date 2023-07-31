@@ -9,7 +9,7 @@ export const Introduction = () => {
     const audience = process.env.REACT_APP_AUTH0_AUDIENCE;
 
     useEffect(() => {
-        fetch('/example')
+        fetch('api/example')
             .then(response => response.text()).then(message=> setMessage(message))
     },[])
     let text = <p>No User logged in</p>
