@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
-import {LoginButton} from "./account/LoginButton.tsx";
-import {LogoutButton} from "./account/LogoutButton.tsx";
+import {LoginButton} from "./account/buttons/LoginButton";
+import {LogoutButton} from "./account/buttons/LogoutButton";
 import {useAuth0} from "@auth0/auth0-react";
 
 export const Introduction = () => {

@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://ello.postgres.database.azure.com:5432/elloml?user=ello&password=gibbiX12345&sslmode=require
+    username: ello
+    password: gibbiX12345
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-bclv4dcp3qrp635b.us.auth0.com/
+  web:
+    resources:
+      add-mappings: false
+application:
+  audience: https://hello-world.example.com
+  client-origin-url: http://localhost:8080
+server:
+  error:
+    whitelabel:
+      enabled: false
+  port: 8080
+azure:
+  storage:
+    accountName: elloml
+    accountKey: UhkzsT9hyq+6aXrfKCt1M0y7/pm+927JmSfOeRzhtrN8N9c/PsTkSWL4r68rDXRF7BXB8eo0EWJ/+AStJC85Mg==
+    containerName: ello

@@ -2,8 +2,9 @@ import React from 'react';
 import {Container, Nav, Navbar} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
+// @ts-ignore
 import logo from '../logo.png';
-import {StatusBar} from "./account/StatusBar.tsx";
+import {StatusBar} from "./account/StatusBar";
 
 
 export const NavigationWithLogin = () => {

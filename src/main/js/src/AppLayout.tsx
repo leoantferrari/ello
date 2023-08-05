@@ -1,4 +1,4 @@
-import {Auth0ProviderWithNavigate} from "./components/account/Auth0Navigate.tsx";
+import {Auth0ProviderWithNavigate} from "./components/account/authentication/Auth0Navigate";
 import React from "react";
 import {Outlet} from "react-router-dom";
 import {Container} from "react-bootstrap";

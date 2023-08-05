@@ -1,17 +1,30 @@
 import React from "react";
-import {LogoutButton} from "./LogoutButton.tsx";
-import {LoginButton} from "./LoginButton.tsx";
-import {useAuth0} from "@auth0/auth0-react";
+import {LogoutButton} from "./buttons/LogoutButton";
+import {LoginButton} from "./buttons/LoginButton";
+import {SignUpButton} from "./buttons/SignUpButton";
+import {useAccount} from "./Account.hooks";
 import {Col} from "react-bootstrap";
+import UserPopover from "./popover/UserPopover";
 
 export const StatusBar: React.FC = () => {
-    const {isAuthenticated} = useAuth0();
+    const {isFetching, isAuthenticated, isRegistered, currentUser} = useAccount();
 
-    let buttonPanel = <><LoginButton/></>;
+    let sign = <div></div>;
+    let buttonPanel = <><LoginButton/>{' '}<SignUpButton/></>;
 
     if (isAuthenticated) {
-        buttonPanel = <><LogoutButton/></>;
+        buttonPanel = <></>;
     }
 
-    return <Col>{buttonPanel}</Col>
+    if (isRegistered) {
+        sign = <UserPopover/>;
+    }
+
+    if (isAuthenticated && !isRegistered) {
+        sign = <>Please <u>Register!</u></>
+        buttonPanel = <LogoutButton/>
+    }
+
+
+    return isFetching ? <div/> : <Col>{sign}{' '}{buttonPanel}</Col>
 }
