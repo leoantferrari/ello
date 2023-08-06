@@ -8,7 +8,7 @@ export const SignUpButton: React.FC = () => {
     const handleSignUp = async () => {
         await loginWithRedirect({
             appState: {
-                returnTo: "/signup",
+                returnTo: "/",
             },
             authorizationParams: {
                 prompt: "login",
@@ -19,7 +19,7 @@ export const SignUpButton: React.FC = () => {
 
 
     return (
-        <Button variant="outline-light" onClick={handleSignUp}>
+        <Button variant="outline-dark" onClick={handleSignUp}>
             Sign Up
         </Button>
     );

@@ -21,7 +21,7 @@ public class UserController {
     }
 
     @GetMapping("")
-    public ResponseEntity<UserDTO> getSpecialUser() {
+    public ResponseEntity<UserDTO> getCurrentUser() {
         User user = userService.getCurrentUser();
         UserDTO userDTO;
         if (user == null) {
@@ -31,6 +31,7 @@ public class UserController {
         }
         return ResponseEntity.ok(userDTO);
     }
+
     @PostMapping("")
     public ResponseEntity<UserDTO> saveUser(@RequestBody UserDTO receivedUser) {
         User user = userService.saveUser(receivedUser);

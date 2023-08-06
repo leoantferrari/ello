@@ -25,7 +25,7 @@ public class ResponseHeadersFilter implements Filter {
         httpResponse.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
         httpResponse.setHeader("X-Frame-Options", "deny");
         httpResponse.setHeader("X-Content-Type-Options", "nosniff");
-        httpResponse.setHeader("Content-Security-Policy", "default-src 'self'; frame-ancestors 'none';");
+        httpResponse.setHeader("Content-Security-Policy", "default-src 'self' https://dev-bclv4dcp3qrp635b.us.auth0.com/; frame-ancestors 'none';");
         httpResponse.setHeader(HttpHeaders.CACHE_CONTROL, "no-cache, no-store, max-age=0, must-revalidate");
         httpResponse.setHeader(HttpHeaders.PRAGMA, "no-cache");
         httpResponse.setIntHeader(HttpHeaders.EXPIRES, 0);

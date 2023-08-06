@@ -7,7 +7,7 @@ import {Col} from "react-bootstrap";
 import UserPopover from "./popover/UserPopover";
 
 export const StatusBar: React.FC = () => {
-    const {isFetching, isAuthenticated, isRegistered, currentUser} = useAccount();
+    const {isFetching, isAuthenticated, isRegistered} = useAccount();
 
     let sign = <div></div>;
     let buttonPanel = <><LoginButton/>{' '}<SignUpButton/></>;

@@ -42,7 +42,7 @@ const UserPopover: React.FC = () => {
                 <Row className='noGutters'>
                     <Col className='text-left d-none d-sm-block'>
                         <div style={{fontSize: '14px', whiteSpace: 'nowrap', marginTop: '5px'}}>
-                            <b>{currentUser.firstName + ' ' + currentUser.surName}</b>
+                            <b>{currentUser.firstName + ' ' + currentUser.lastName}</b>
                         </div>
                         <div style={{color: 'gray', fontSize: '13px', whiteSpace: 'nowrap', marginTop: '-5px'}}>
                             {currentUser.isBusiness ? 'Company Account' : 'User Account'}
@@ -85,7 +85,7 @@ const UserPopover: React.FC = () => {
                             </div>
                             <div style={{display: 'flex', flexDirection: 'column'}}>
                                 <br/>
-                                <strong>{currentUser.firstName + ' ' + currentUser.surName}</strong>
+                                <strong>{currentUser.firstName + ' ' + currentUser.lastName}</strong>
                                 <div>{currentUser.email}</div>
                             </div>
                         </div>
@@ -123,7 +123,7 @@ const UserPopover: React.FC = () => {
                             </div>
                         </Link>
 
-                        <strong>{currentUser.firstName + ' ' + currentUser.surName}</strong>
+                        <strong>{currentUser.firstName + ' ' + currentUser.lastName}</strong>
                         {currentUser.email}
                         <br/>
                         <br/>

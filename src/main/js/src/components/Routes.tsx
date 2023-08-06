@@ -8,6 +8,9 @@ import {AppLayout} from "../AppLayout";
 import {NotFoundPage} from "./NotFoundPage";
 import {Introduction} from "./Introduction";
 import {ForbiddenPage} from "./ForbiddenPage";
+import {PageLoader} from "./account/PageLoader";
+import EditAccount from "./account/edit/EditAccount.component";
+import CreateAccountPage from "./account/edit/CreateAccountPage.component";
 
 export function ApplicationRouter() {
     return (
@@ -17,7 +20,9 @@ export function ApplicationRouter() {
                 <Routes>
                     <Route path="/" element={<AppLayout/>}>
                         <Route index element={<Introduction/>}/>
-                        <Route path="/hello" element={<AuthenticationGuard component={ForbiddenPage}/>}/>
+                        <Route path="/unknown" element={<AuthenticationGuard component={ForbiddenPage}/>}/>
+                        <Route path="/edit-profile" element={<AuthenticationGuard component={EditAccount}/>}/>
+                        <Route path="/callback" element={<PageLoader/>}/>
                         <Route path="*" element={
                             <NotFoundPage/>
                         }/>

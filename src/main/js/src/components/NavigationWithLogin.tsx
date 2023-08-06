@@ -23,11 +23,20 @@ export const NavigationWithLogin = () => {
                     <StatusBar/>
                 </Nav>
                 <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
-                    <Nav.Link
-                        as={Link}
-                        to="/unknown">
-                        Unknown
-                    </Nav.Link>
+                    <Nav>
+                        <Nav.Link
+                            as={Link}
+                            to="/">
+                            Home
+                        </Nav.Link>
+                    </Nav>
+                    <Nav>
+                        <Nav.Link
+                            as={Link}
+                            to="/unknown">
+                            Unknown
+                        </Nav.Link>
+                    </Nav>
                     <Navbar.Brand href="/" className="mx-auto d-none d-lg-block"><img
                         src={logo}
                         height="40"

@@ -5,7 +5,7 @@ import {Button} from "react-bootstrap";
 export const EditAccountButton: React.FC = () => {
 
     return (
-        <Link to={'/editProfile'}><Button variant="outline-secondary">
+        <Link to={'/edit-profile'}><Button variant="outline-secondary">
             Edit
         </Button></Link>
     );

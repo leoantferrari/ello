@@ -1,8 +1,8 @@
 export const REST_URLS = {
     USER: {
-        user: 'user',
+        user: 'api/user',
     },
     EXAMPLE: {
-        time: 'example',
+        time: 'api/example',
     },
 };

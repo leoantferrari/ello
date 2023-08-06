@@ -5,6 +5,7 @@ import com.leoantsmith.elloml.model.User;
 import com.leoantsmith.elloml.repositories.UserRepository;
 import com.leoantsmith.elloml.service.intf.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,7 +19,7 @@ public class UserService implements IUserService {
      */
     @Override
     public User getCurrentUser() {
-        String oAuthKey = "";
+        String oAuthKey = SecurityContextHolder.getContext().getAuthentication().getName();
         return userRepository.getFirstByoAuthToken(oAuthKey);
     }
 
@@ -29,11 +30,15 @@ public class UserService implements IUserService {
 
     @Override
     public User saveUser(UserDTO userDTO) {
-        User user = new User();
+        String oAuthKey = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = getUser(oAuthKey);
+        if (user == null) {
+            user = new User();
+        }
         user.setFirstName(userDTO.getFirstName());
         user.setLastName(userDTO.getLastName());
         user.setEmail(userDTO.getEmail());
-        user.setoAuthToken(userDTO.getoAuthToken());
+        user.setoAuthToken(oAuthKey);
 
         return userRepository.save(user);
     }

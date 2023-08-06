@@ -19,7 +19,7 @@ export const useAccount = (): any => {
 
     const resetCurrentUser = useCallback(() => {
         dispatch(resetUser());
-    }, [dispatch, resetUser()]);
+    }, [dispatch, resetUser]);
 
     useEffect(() => {
         if (isAuthenticated) {
@@ -38,7 +38,7 @@ export const useAccount = (): any => {
         } else {
             setIsRegistered(false);
         }
-    }, [auth0_user, isAuthenticated])
+    }, [auth0_user, isAuthenticated, getAccessTokenSilently,setCurrentUser,resetCurrentUser])
 
     return {
         isFetching,
