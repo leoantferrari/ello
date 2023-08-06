@@ -87,7 +87,7 @@ export const useEditAccount = (hasEditButton: boolean): EditAccountProps => {
                 })
             });
         }
-    }, [dispatch, firstName, lastName, email, getAccessTokenSilently])
+    }, [dispatch, firstName, lastName, email, getAccessTokenSilently,isRegistered])
 
     const userActions = {
         setFirstName,

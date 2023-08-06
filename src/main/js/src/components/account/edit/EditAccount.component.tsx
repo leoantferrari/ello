@@ -22,7 +22,7 @@ const EditAccount: React.FC<Props> = ({buttonText, hasEditButton}: Props) => {
         }
         event.preventDefault();
         setValidated(true);
-    }, [user]);
+    }, [user,saveUser]);
 
 
     let editButton = <></>;
