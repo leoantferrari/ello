@@ -1,6 +1,7 @@
 import React from 'react';
 import EditAccount from "./EditAccount.component";
 import {useAccount} from "../Account.hooks";
+
 const CreateAccountPage: React.FC = (props) => {
 
     const {currentUser, isRegistered, isAuthenticated} = useAccount();

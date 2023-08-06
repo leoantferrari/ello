@@ -5,7 +5,7 @@ import {Container} from "react-bootstrap";
 import NavigationWithLogin from "./components/NavigationWithLogin";
 import {ProtectedOutlet} from "./components/util/ProtectedOutlet";
 
-;
+
 
 export const AppLayout = () => {
 

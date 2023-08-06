@@ -38,7 +38,7 @@ export const useAccount = (): any => {
         } else {
             setIsRegistered(false);
         }
-    }, [auth0_user, isAuthenticated, getAccessTokenSilently,setCurrentUser,resetCurrentUser])
+    }, [auth0_user, isAuthenticated, getAccessTokenSilently, setCurrentUser, resetCurrentUser])
 
     return {
         isFetching,

@@ -10,7 +10,6 @@ import {Introduction} from "./Introduction";
 import {ForbiddenPage} from "./ForbiddenPage";
 import {PageLoader} from "./account/PageLoader";
 import EditAccount from "./account/edit/EditAccount.component";
-import CreateAccountPage from "./account/edit/CreateAccountPage.component";
 
 export function ApplicationRouter() {
     return (

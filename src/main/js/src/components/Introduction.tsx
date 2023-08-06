@@ -9,8 +9,8 @@ export const Introduction = () => {
 
     useEffect(() => {
         fetch('api/example')
-            .then(response => response.text()).then(message=> setMessage(message))
-    },[])
+            .then(response => response.text()).then(message => setMessage(message))
+    }, [])
     let text = <p>No User logged in</p>
     if (user?.email) {
         text = <p>Hi there {user.email}</p>
@@ -25,7 +25,7 @@ export const Introduction = () => {
                 </p>
                 {text}
                 <br/>
-                <p> {user?.email?<LogoutButton/>:<LoginButton/>}</p>
+                <p> {user?.email ? <LogoutButton/> : <LoginButton/>}</p>
             </div>
             <br/>
         </div>

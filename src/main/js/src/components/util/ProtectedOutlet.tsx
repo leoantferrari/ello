@@ -1,7 +1,6 @@
 import React from "react";
 import {Outlet} from "react-router-dom";
 import {useAccount} from "../account/Account.hooks";
-import {LogoutButton} from "../account/buttons/LogoutButton";
 import CreateAccountPage from "../account/edit/CreateAccountPage.component";
 
 export const ProtectedOutlet: React.FC = () => {
