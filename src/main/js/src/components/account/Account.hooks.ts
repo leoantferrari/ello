@@ -15,11 +15,11 @@ export const useAccount = (): any => {
     const currentUser = useSelector((rootState: RootState) => rootState.user);
     const setCurrentUser = useCallback((user: User) => {
         dispatch(setUser(user))
-    }, [dispatch, setUser]);
+    }, [dispatch]);
 
     const resetCurrentUser = useCallback(() => {
         dispatch(resetUser());
-    }, [dispatch, resetUser]);
+    }, [dispatch]);
 
     useEffect(() => {
         if (isAuthenticated) {

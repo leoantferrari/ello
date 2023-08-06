@@ -67,7 +67,7 @@ export const useEditAccount = (hasEditButton: boolean): EditAccountProps => {
             setLastName(currentUser.lastName)
         }
 
-    }, [auth0_user, currentUser, isRegistered, isAuthenticated])
+    }, [auth0_user, currentUser, isRegistered, isAuthenticated, hasEditButton])
 
     const saveUser = useCallback(() => {
         if (firstName && lastName && email) {
@@ -87,7 +87,7 @@ export const useEditAccount = (hasEditButton: boolean): EditAccountProps => {
                 })
             });
         }
-    }, [dispatch, firstName, lastName, email])
+    }, [dispatch, firstName, lastName, email, getAccessTokenSilently])
 
     const userActions = {
         setFirstName,
