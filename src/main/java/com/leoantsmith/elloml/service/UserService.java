@@ -18,7 +18,7 @@ public class UserService implements IUserService {
      */
     @Override
     public User getCurrentUser() {
-        
+        String oAuthKey = "";
         return userRepository.getFirstByoAuthToken(oAuthKey);
     }
 
