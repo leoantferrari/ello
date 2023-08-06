@@ -42,7 +42,7 @@ jobs:
       - name: create env file frontend
         run: |
           cd src/main/js/
-          echo -e "REACT_APP_AUTH0_AUDIENCE=${{ secrets.REACT_APP_AUTH0_AUDIENCE }}\nREACT_APP_AUTH0_CALLBACK_URL=${{ secrets.REACT_APP_AUTH0_CALLBACK_URL }}\nREACT_APP_AUTH0_CLIENT_ID=${{ secrets.REACT_APP_AUTH0_CLIENT_ID }}\nREACT_APP_AUTH0_DOMAIN=${{ secrets.REACT_APP_AUTH0_DOMAIN }}" >> .env
+          echo -e "CI=false\nREACT_APP_AUTH0_AUDIENCE=${{ secrets.REACT_APP_AUTH0_AUDIENCE }}\nREACT_APP_AUTH0_CALLBACK_URL=${{ secrets.REACT_APP_AUTH0_CALLBACK_URL }}\nREACT_APP_AUTH0_CLIENT_ID=${{ secrets.REACT_APP_AUTH0_CLIENT_ID }}\nREACT_APP_AUTH0_DOMAIN=${{ secrets.REACT_APP_AUTH0_DOMAIN }}" >> .env
           cd ../../../
 
       - name: create env file backend
@@ -51,6 +51,8 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean install
+        env:
+          CI: ""
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
