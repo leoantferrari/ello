@@ -6,7 +6,6 @@ public class UserDTO {
     String lastName;
     String firstName;
     String email;
-    String oAuthToken;
 
     public UserDTO() {
 
@@ -16,7 +15,6 @@ public class UserDTO {
         firstName = user.getFirstName();
         lastName = user.getLastName();
         email = user.getEmail();
-        oAuthToken = user.getoAuthToken();
     }
 
     public String getLastName() {
@@ -43,11 +41,4 @@ public class UserDTO {
         this.email = email;
     }
 
-    public String getoAuthToken() {
-        return oAuthToken;
-    }
-
-    public void setoAuthToken(String oAuthToken) {
-        this.oAuthToken = oAuthToken;
-    }
 }

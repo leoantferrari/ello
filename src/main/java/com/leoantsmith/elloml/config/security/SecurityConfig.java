@@ -31,7 +31,7 @@ public class SecurityConfig {
     @Bean
     public WebSecurityCustomizer webSecurity() {
         final var exclusionRegex = "^(?!%s|%s).*$".formatted(
-                "/api",
+                "/api/letter",
                 "/api/user"
 
         );

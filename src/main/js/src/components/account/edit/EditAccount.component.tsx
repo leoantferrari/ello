@@ -30,13 +30,15 @@ const EditAccount: React.FC<Props> = ({buttonText, hasEditButton}: Props) => {
 
     if (hasEditButton) {
         editButton = <> {' '} <Button className="float-end" variant={editing ? 'secondary' : 'primary'}
+                                      style={{marginTop: '10px', marginRight: '5px'}}
                                       onClick={() => setEditing(!editing)}>
             {editing ? 'Cancel' : 'Edit'}
         </Button></>
     }
 
     if ((hasEditButton && editing) || !hasEditButton) {
-        saveButton = <Button className="float-end" variant="primary" type="submit" disabled={isLoading}>
+        saveButton = <Button className="float-end" variant="primary" type="submit" disabled={isLoading}
+                             style={{marginTop: '10px', marginRight: '5px'}}>
             {buttonText ? buttonText : 'Save'}
         </Button>
     }

@@ -72,7 +72,7 @@ const UserPopover: React.FC = () => {
                         <div style={{display: 'flex', justifyContent: 'center'}}>
 
                             <div style={{marginRight: '1rem'}}>
-                                <Link to={'/editProfile'}>
+                                <Link to={'/edit-profile'}>
                                     <div onClick={handleHide} onMouseEnter={handleImageFade}
                                          onMouseLeave={handleImageFadeOut}>
                                         <Image
@@ -113,7 +113,7 @@ const UserPopover: React.FC = () => {
             >
                 <Popover id="popover-contained">
                     <Popover.Body style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                        <Link to={'/editProfile'}>
+                        <Link to={'/edit-profile'}>
                             <div onClick={handleHide} onMouseEnter={handleImageFade} onMouseLeave={handleImageFadeOut}>
                                 <Image
                                     src={auth0_user?.picture ? auth0_user.picture : ''}

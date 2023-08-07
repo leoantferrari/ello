@@ -14,7 +14,7 @@ const CreateAccountPage: React.FC = (props) => {
                 </h3>
                 <p>It seems like you dont have an account with us just yet. Is this information correct?</p>
                 <div/>
-                <EditAccount buttonText={'SignUp'}/></div>) : (<h3>Please Sign in or Sign up!</h3>)}
+                <EditAccount buttonText={'Sign Up'}/></div>) : (<h3>Please Sign in or Sign up!</h3>)}
         </div>
     );
 }

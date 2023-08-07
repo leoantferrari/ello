@@ -9,7 +9,6 @@ const initialState: UserState = {
     firstName: "",
     lastName: "",
     email: "",
-    oAuthToken: ""
 };
 
 export const userSlice = createSlice({

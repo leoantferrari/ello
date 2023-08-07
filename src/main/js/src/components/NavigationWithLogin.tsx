@@ -37,6 +37,13 @@ export const NavigationWithLogin = () => {
                             Unknown
                         </Nav.Link>
                     </Nav>
+                    <Nav>
+                        <Nav.Link
+                            as={Link}
+                            to="/letters">
+                            Letters
+                        </Nav.Link>
+                    </Nav>
                     <Navbar.Brand href="/" className="mx-auto d-none d-lg-block"><img
                         src={logo}
                         height="40"
