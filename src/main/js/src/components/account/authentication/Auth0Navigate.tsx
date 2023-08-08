@@ -27,7 +27,7 @@ export const Auth0ProviderWithNavigate = ({children}: Props) => {
             clientId={clientId}
             authorizationParams={{
                 audience: audience,
-                redirect_uri: window.location.href.slice(0,window.location.href.indexOf(window.location.hostname)+window.location.hostname.length +(window.location.href.includes(":") ? 5:0))+"/" + "callback",
+                redirect_uri: window.location.href.slice(0,window.location.href.indexOf(window.location.hostname)+window.location.hostname.length +(window.location.href.includes(":") ? 6:0)) + "callback",
             }}
             onRedirectCallback={onRedirectCallback}
         >
