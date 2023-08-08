@@ -13,6 +13,9 @@ import EditAccountWrapper from "./account/edit/EditAccountWrapper.component";
 import {LetterOverviewPage} from "./letters/LetterOverviewPage";
 import LetterView from "./letters/published/LetterView.component";
 import {Landing} from "../Landing";
+import {ConversationOverview} from "./message/ConversationOverview.component";
+import {ConversationOverviewPage} from "./message/ConversationOverviewPage";
+import {ConversationView} from "./message/message/ConversationView";
 
 export function ApplicationRouter() {
     return (
@@ -32,6 +35,8 @@ export function ApplicationRouter() {
                             <Route path="/letters" element={<AuthenticationGuard component={LetterOverviewPage}/>}/>
                             <Route path="/letters" element={<AuthenticationGuard component={LetterOverviewPage}/>}/>
                             <Route path="/letter/:id" element={<LetterView/>}/>
+                            <Route path="/conversations" element={<AuthenticationGuard component={ConversationOverviewPage}/>}/>
+                            <Route path="/conversation/:id" element={<AuthenticationGuard component={ConversationView}/>}/>
                             <Route path="/*" element={
                                 <NotFoundPage/>
                             }/>

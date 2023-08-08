@@ -33,8 +33,8 @@ export const NavigationWithLogin = () => {
                     <Nav>
                         <Nav.Link
                             as={Link}
-                            to="/unknown">
-                            Unknown
+                            to="/conversations">
+                            Conversations
                         </Nav.Link>
                     </Nav>
                     <Nav>
