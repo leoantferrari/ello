@@ -16,6 +16,10 @@ function getLetterUrl(url:string, accessToken:string) {
     return MakeApiRequest<Letter>({url: REST_URLS.LETTER.letterByUrl(url), userToken: accessToken, method: REQUEST_METHOD.GET})
 }
 
+function getLetterUrlPublic(url:string) {
+    return MakeApiRequest<Letter>({url: REST_URLS.PUBLIC.letterByUrl(url), method: REQUEST_METHOD.GET})
+}
+
 function saveLetter(letterDetails: Letter, userToken: string) {
     return MakeApiRequest<Letter>({url: REST_URLS.LETTER.letter, data: letterDetails, method: REQUEST_METHOD.POST, userToken});
 }
@@ -24,5 +28,6 @@ export const LetterService = {
     saveLetter,
     getAllLettersForUser,
     getLetterId: getLetterId,
-    getLetterUrl:getLetterUrl
+    getLetterUrl:getLetterUrl,
+    getLetterUrlPublic
 }

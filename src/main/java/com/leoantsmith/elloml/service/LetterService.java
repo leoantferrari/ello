@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Service
 public class LetterService implements ILetterService {
@@ -46,7 +45,11 @@ public class LetterService implements ILetterService {
 
     @Override
     public LetterDTO getLetterForURL(String letterUrl) {
-        return new LetterDTO(letterRepository.getFirstByUrlEnding(letterUrl));
+        Letter letter = letterRepository.getFirstByUrlEnding(letterUrl);
+        if (letter==null) {
+            return null;
+        }
+        return new LetterDTO(letter);
     }
 
     @Override

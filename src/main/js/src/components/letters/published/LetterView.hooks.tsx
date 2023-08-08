@@ -6,16 +6,13 @@ import {Letter} from "../../../model/Letter";
 
 export const useLetterView = () => {
     const {id} = useParams();
-    const {getAccessTokenSilently} = useAccount();
     const [letter, setLetter] = useState<Letter>({id:0,title:'',message:'',owner:{lastName:'',email:'', firstName:''},urlEnding:''})
     useEffect(() => {
-        getAccessTokenSilently().then((token: string) => {
-            LetterService.getLetterUrl(id ? id : "", token).then((letter) => {
-                setLetter(letter);
-            })
+        LetterService.getLetterUrlPublic(id ? id : "").then((letter) => {
+            setLetter(letter);
         })
     }
-    ,[getAccessTokenSilently,id]);
+    ,[id]);
 
     return {letter}
 }
