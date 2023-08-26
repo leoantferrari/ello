@@ -5,5 +5,6 @@ export interface Message{
     message: string,
     urlEnding: string,
     author: User,
-    liked:boolean
+    liked:boolean,
+    date:string
 }

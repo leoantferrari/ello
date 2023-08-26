@@ -1,15 +1,22 @@
-import {Button, Form} from "react-bootstrap";
+import {Button, Form, InputGroup} from "react-bootstrap";
 import React, {useCallback, useState} from "react";
 import {LetterService} from "../../../../api/letter/LetterService";
 import {AxiosError} from "axios";
 import {MessageService} from "../../../../api/message/MessageService";
 import {useAccount} from "../../../account/Account.hooks";
+import {BiSend} from "react-icons/bi";
 
 // @ts-ignore
 export const MessageInput = ({urlEnding, onClose}) => {
     const [message, setMessage] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const {getAccessTokenSilently,currentUser} = useAccount();
+
+    const handleKeyPress = (event: { key: string; }) => {
+        if (event.key === 'Enter' && message.trim() !== '') {
+            saveLetter();
+        }
+    }
 
     const saveLetter = useCallback(() => {
         if (message) {
@@ -20,6 +27,7 @@ export const MessageInput = ({urlEnding, onClose}) => {
                     message,
                     urlEnding,
                     liked:false,
+                    date:'',
                     author: currentUser,
                 }, token).then((letter) => {
                     setIsLoading(false);
@@ -34,20 +42,16 @@ export const MessageInput = ({urlEnding, onClose}) => {
     }, [message])
 
     return <div>
-        <Form >
-            <Form.Group controlId="formMessageInput">
-                <Form.Label>Your Message</Form.Label>
-                <Form.Control
-                    type="text"
-                    placeholder="Message"
-                    required
-                    disabled={isLoading}
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                />
-            </Form.Group>
-            <Button onClick={saveLetter}>Send</Button>
-        </Form>
-
+        <InputGroup className="text-muted d-flex justify-content-start align-items-center p-12">
+            <Form.Control
+                placeholder="Message"
+                required
+                disabled={isLoading}
+                onKeyDown={handleKeyPress}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+            />
+            <Button onClick={saveLetter} variant="primary"><BiSend/></Button>
+        </InputGroup>
     </div>
 }

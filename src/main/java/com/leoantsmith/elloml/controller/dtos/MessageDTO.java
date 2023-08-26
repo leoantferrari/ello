@@ -2,7 +2,13 @@ package com.leoantsmith.elloml.controller.dtos;
 
 import com.leoantsmith.elloml.model.Message;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class MessageDTO {
+
+    public static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM HH:mm", Locale.ENGLISH);
 
     long id;
     String urlEnding;
@@ -12,6 +18,8 @@ public class MessageDTO {
     UserDTO author;
 
     boolean liked;
+
+    String date;
 
     public MessageDTO() {
 
@@ -23,6 +31,10 @@ public class MessageDTO {
         this.author = new UserDTO(message.getAuthor());
         this.urlEnding = message.getConversation().getUrlEnding();
         this.liked = message.getLiked();
+        this.date = "";
+        if (message.getDate()!=null) {
+            this.date = dateFormat.format(message.getDate());
+        }
     }
 
     public boolean isLiked() {
@@ -63,5 +75,13 @@ public class MessageDTO {
 
     public void setAuthor(UserDTO author) {
         this.author = author;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

@@ -46,6 +46,7 @@ public class ConversationService implements IConversationService {
         message.setMessage(messageDTO.getMessage());
         message.setAuthor(userService.getCurrentUser());
         message.setLiked(messageDTO.isLiked());
+        message.setDate(new Date());
         return new MessageDTO(messageRepository.save(message));
     }
 
