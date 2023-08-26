@@ -55,18 +55,22 @@ export const ConversationView = () => {
             })
         }
     }, [forceUpdate])
-
+    let lastAuthor = ''
     return<div><h3>{conversation?.title}</h3><br/>
 
         <Row id={'scrolly'} style={{ overflowY: 'scroll',
             whiteSpace: 'pre-wrap',
             height:'400px'}} className={"d-flex justify-content-center"}>
             <Col md="12" lg="12" xl="12">
-            {messages?.map((message, eventIndex) => (
-                <><MessageView author={message.author.firstName} isUser={currentUser.email == message.author.email} message={message}/></>
-            ))}
+            {messages?.map((message, eventIndex) => {
+                const showAuthor = !(lastAuthor==message.author.email)
+                lastAuthor = message.author.email;
+                return (
+                <><MessageView showAuthor={showAuthor} showTime={true} author={message.author.firstName} isUser={currentUser.email == message.author.email} message={message}/></>
+            )})}
             </Col>
         </Row>
+        <br/>
         <MessageInput onClose={()=>setForceUpdate(true)} urlEnding={id?id:''}/>
     </div>
 }
