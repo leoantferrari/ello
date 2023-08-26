@@ -23,13 +23,7 @@ export const NavigationWithLogin = () => {
                     <StatusBar/>
                 </Nav>
                 <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
-                    <Nav>
-                        <Nav.Link
-                            as={Link}
-                            to="/">
-                            Home
-                        </Nav.Link>
-                    </Nav>
+
                     <Nav>
                         <Nav.Link
                             as={Link}

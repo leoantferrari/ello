@@ -56,6 +56,7 @@ export const ConversationView = () => {
         }
     }, [forceUpdate])
     let lastAuthor = ''
+    let lastTime = 0;
     return<div><h3>{conversation?.title}</h3><br/>
 
         <Row id={'scrolly'} style={{ overflowY: 'scroll',
@@ -64,9 +65,15 @@ export const ConversationView = () => {
             <Col md="12" lg="12" xl="12">
             {messages?.map((message, eventIndex) => {
                 const showAuthor = !(lastAuthor==message.author.email)
+                let showTime = false;
                 lastAuthor = message.author.email;
+                const messageDate = new Date(message.date);
+                if (messageDate.getTime()-lastTime>5 * 60 * 1000) {
+                    showTime = true;
+                }
+                lastTime = messageDate.getTime();
                 return (
-                <><MessageView showAuthor={showAuthor} showTime={true} author={message.author.firstName} isUser={currentUser.email == message.author.email} message={message}/></>
+                <><MessageView showAuthor={showAuthor} showTime={showTime} author={message.author.firstName} isUser={currentUser.email == message.author.email} message={message}/></>
             )})}
             </Col>
         </Row>
