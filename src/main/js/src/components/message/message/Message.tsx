@@ -15,17 +15,6 @@ export const MessageView: React.FC<Props> = (props) => {
     const align = props.isUser? 'end':'start';
     const bgColor = props.isUser ?'light':'primary';
 
-    const isValidUrl = (urlString:string)=> {
-        var urlPattern = new RegExp('^(https?:\\/\\/)?' + // validate protocol
-            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // validate domain name
-            '((\\d{1,3}\\.){3}\\d{1,3}))' + // validate OR ip (v4) address
-            '(\\:\\d+)?(\\/[-a-z\\d%_.~+@]*)*' + // validate port and path (added @)
-            '(\\?[;&a-z\\d%_.~+=-]*)?' + // validate query string
-            '(\\#[-a-z\\d_]*)?$' + // validate fragment locator
-            '|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$', 'i'); // validate email
-        return !!urlPattern.test(urlString);
-    }
-
     function extractUrlsAndCreateMessage(inputString:string) {
         const urlPattern = /((?:https?|ftp):\/\/[^\s/$.?#].[^\s]*)/g;
         const urls = inputString.match(urlPattern) || [];

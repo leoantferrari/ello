@@ -1,6 +1,7 @@
 import React from "react";
 import {Card, Col} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import {Swiper} from "../swiping/Swiper.component";
 
 
 interface LetterCardProps {
@@ -13,7 +14,7 @@ const ViewCard: React.FC<LetterCardProps> = (props) => {
 
     return (
         <Col>
-            <Card>
+            <Swiper contents={<Card>
                 <Link style={{textDecoration: 'none'}} to={props.link}>
                     <Card.Body>
                         <div className="d-flex justify-content-between">
@@ -25,7 +26,7 @@ const ViewCard: React.FC<LetterCardProps> = (props) => {
                             style={{fontSize: 12, color: 'gray'}}> {props.message}</Card.Subtitle>
                     </Card.Body>
                 </Link>
-            </Card>
+            </Card>}/>
         </Col>
     );
 }

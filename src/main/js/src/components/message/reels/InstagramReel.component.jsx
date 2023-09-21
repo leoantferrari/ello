@@ -1,4 +1,3 @@
-// Your React component file
 import React, {useEffect, useState} from 'react';
 import {ReelsService} from "./instagramUtils";
 import {Button, Card, Col, Row} from "react-bootstrap";
